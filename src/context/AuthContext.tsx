@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { authService } from '../services/api';
+import { authService } from '../services/authService';
 import { AuthContextType, AuthState, SignInFormData, SignUpFormData, User } from '../types/auth';
 
 const AuthContext = createContext<AuthContextType>({
@@ -67,7 +67,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isAuthenticated: false,
         error: error.response?.data?.message || 'Failed to sign up. Please try again.',
       }));
-      toast.error(error.response?.data?.message || 'Failed to sign up. Please try again.');
     }
   };
 
@@ -90,7 +89,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         isLoading: false,
         error: error.response?.data?.message || 'Invalid credentials. Please try again.',
       }));
-      toast.error(error.response?.data?.message || 'Invalid credentials. Please try again.');
     }
   };
 
