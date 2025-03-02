@@ -1,46 +1,93 @@
-# Getting Started with Create React App
+# Authentication Module Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend part of a full-stack authentication module built with React, TypeScript, and Material UI. It provides user sign-up, sign-in, and protected routes functionality.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- User sign-up with validation
+- User sign-in with validation
+- Protected routes
+- Responsive design
+- Form validation
+- Error handling
+- Toast notifications
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (v14 or higher)
+- npm or yarn
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd <repository-name>/frontend
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-### `npm run build`
+3. Create a `.env` file in the root directory and add the following environment variables:
+```
+REACT_APP_API_URL=http://localhost:3001/api
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Running the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To start the development server:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+# or
+yarn start
+```
 
-### `npm run eject`
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Building for Production
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To create a production build:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm run build
+# or
+yarn build
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The build artifacts will be stored in the `build/` directory.
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `src/components`: Reusable UI components
+- `src/pages`: Page components
+- `src/context`: React context for state management
+- `src/services`: API services
+- `src/utils`: Utility functions
+- `src/types`: TypeScript type definitions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Backend Integration
+
+This frontend is designed to work with a NestJS backend. Make sure the backend server is running and accessible at the URL specified in the `.env` file.
+
+## Authentication Flow
+
+1. User signs up or signs in through the respective forms
+2. Upon successful authentication, the backend returns a JWT token
+3. The token is stored in localStorage and included in subsequent API requests
+4. Protected routes check for authentication status before rendering
+5. The token is removed from localStorage upon sign-out
+
+## Form Validation
+
+- Email: Valid email format
+- Name: Minimum of 3 characters
+- Password:
+  - Minimum length of 8 characters
+  - At least one letter
+  - At least one number
+  - At least one special character
