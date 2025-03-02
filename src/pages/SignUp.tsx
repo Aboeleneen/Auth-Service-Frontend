@@ -19,13 +19,8 @@ import { SignUpFormData } from '../types/auth';
 const SignUp: React.FC = () => {
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
-  const { signUp, isAuthenticated, error, clearError } = useAuth();
+  const { signUp, isAuthenticated, error } = useAuth();
   const navigate = useNavigate();
-
-  // Use useCallback to memoize the cleanup function
-  // const handleCleanup = useCallback(() => {
-  //   clearError();
-  // }, [clearError]);
 
   useEffect(() => {
     if (isAuthenticated) {

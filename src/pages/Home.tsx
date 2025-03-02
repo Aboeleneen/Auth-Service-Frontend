@@ -45,10 +45,10 @@ const Home: React.FC = () => {
           }}
         >
           <Typography component="h1" variant="h3" gutterBottom>
-            Authentication Demo
+              Easy Generator Assessment (Public Area)
           </Typography>
           
-          <Typography variant="h6" color="textSecondary" paragraph>
+          <Typography variant="h6" color="textSecondary">
             A full-stack authentication module built with React, TypeScript, and NestJS.
           </Typography>
           
@@ -65,7 +65,7 @@ const Home: React.FC = () => {
                 onClick={handleNavigateToApp}
                 size="large"
               >
-                Go to Application
+                Go to the Application (Protected Area)
               </Button>
             ) : (
               <>

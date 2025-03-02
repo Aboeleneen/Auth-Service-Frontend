@@ -49,7 +49,7 @@ const AppPage: React.FC = () => {
             }}
           >
             <Typography component="h1" variant="h4" gutterBottom>
-              Welcome to the application
+              Welcome to Easy Generator Assessment
             </Typography>
             
             {user && (
