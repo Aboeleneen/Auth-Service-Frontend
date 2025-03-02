@@ -14,52 +14,37 @@ This is the frontend part of a full-stack authentication module built with React
 
 ## Prerequisites
 
-- Node.js (v14 or higher)
-- npm or yarn
+- Docker and Docker Compose
 
-## Installation
+## Running with Docker Compose
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd <repository-name>/frontend
+git clone https://github.com/Aboeleneen/Auth-Service-Frontend.git
+cd Auth-Service-Frontend
 ```
 
-2. Install dependencies:
+2. Create a `.env` file in the root directory (you can copy from `.env.example`):
 ```bash
-npm install
-# or
-yarn install
+cp .env.example .env
 ```
 
-3. Create a `.env` file in the root directory and add the following environment variables:
+3. Update the `.env` file with your backend API URL:
 ```
-REACT_APP_API_URL=http://localhost:3001/api
+REACT_APP_API_URL=http://your-backend-url/api
 ```
 
-## Running the Application
-
-To start the development server:
-
+4. Start the application using Docker Compose:
 ```bash
-npm start
-# or
-yarn start
+docker-compose up -d
 ```
 
-The application will be available at [http://localhost:3000](http://localhost:3000).
+The application will be available at [http://localhost:3001](http://localhost:3001).
 
-## Building for Production
-
-To create a production build:
-
+To stop the application:
 ```bash
-npm run build
-# or
-yarn build
+docker-compose down
 ```
-
-The build artifacts will be stored in the `build/` directory.
 
 ## Project Structure
 
@@ -77,10 +62,12 @@ This frontend is designed to work with a NestJS backend. Make sure the backend s
 ## Authentication Flow
 
 1. User signs up or signs in through the respective forms
-2. Upon successful authentication, the backend returns a JWT token
-3. The token is stored in localStorage and included in subsequent API requests
-4. Protected routes check for authentication status before rendering
-5. The token is removed from localStorage upon sign-out
+2. Upon successful authentication, the backend returns user data and sets HTTP-only cookies for authentication
+3. Authentication state is managed through React Context (AuthContext)
+4. All API requests are made with credentials to include the HTTP-only cookies
+5. Protected routes check authentication status before rendering content
+6. Automatic token refresh is implemented to maintain the user's session
+7. When the user signs out, the cookies are cleared from the browser
 
 ## Form Validation
 
