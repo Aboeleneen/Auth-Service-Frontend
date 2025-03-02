@@ -44,7 +44,7 @@ const Home: React.FC = () => {
             textAlign: 'center',
           }}
         >
-          <Typography component="h1" variant="h3" gutterBottom>
+          <Typography component="h2" variant="h4" gutterBottom>
               Easy Generator Assessment (Public Area)
           </Typography>
           
