@@ -18,7 +18,6 @@ export interface SignInFormData {
 
 export interface AuthState {
   user: User | null;
-  token: string | null;
   isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
@@ -27,6 +26,6 @@ export interface AuthState {
 export interface AuthContextType extends AuthState {
   signUp: (data: SignUpFormData) => Promise<void>;
   signIn: (data: SignInFormData) => Promise<void>;
-  signOut: () => void;
+  signOut: () => Promise<void>;
   clearError: () => void;
 } 

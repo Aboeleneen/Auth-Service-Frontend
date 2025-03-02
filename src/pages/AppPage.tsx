@@ -13,6 +13,10 @@ import { useAuth } from '../context/AuthContext';
 const AppPage: React.FC = () => {
   const { user, signOut } = useAuth();
 
+  const handleSignOut = async () => {
+    await signOut();
+  };
+
   return (
     <>
       <AppBar position="static">
@@ -20,7 +24,7 @@ const AppPage: React.FC = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Authentication Demo
           </Typography>
-          <Button color="inherit" onClick={signOut}>
+          <Button color="inherit" onClick={handleSignOut}>
             Logout
           </Button>
         </Toolbar>
